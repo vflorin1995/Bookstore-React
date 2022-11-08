@@ -1,4 +1,20 @@
-const initialState = [];
+const initialState = [
+  {
+    id: 0,
+    title: 'Harry Potter',
+    author: 'JK Rawling',
+  },
+  {
+    id: 1,
+    title: 'Math',
+    author: 'Einstein',
+  },
+  {
+    id: 2,
+    title: 'Physics',
+    author: 'Newton',
+  },
+];
 
 // ACTIONS
 
@@ -16,7 +32,7 @@ export default function book(state = initialState, action = {}) {
         title: action.title,
       }];
     case REMOVEBOOK:
-      return state.map((book) => (action.id !== book.id));
+      return [state.slice(0, action.id), state.slice(action.id + 1, state.length)];
     default:
       return state;
   }
