@@ -1,20 +1,24 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { addbook } from '../redux/Books/allbooks';
 
 const AddBook = () => {
-  const books = useSelector((state) => state.book);
   const dispatch = useDispatch();
+
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+
   function ana(e) {
     e.preventDefault();
-    const title = e.target.querySelector('.title');
-    const author = e.target.querySelector('.author');
-    dispatch(addbook(books.length, title.value, author.value));
+    dispatch(addbook(Math.floor(Math.random() * 100000), title, author));
+    e.target.reset();
   }
+
   return (
     <>
       <form onSubmit={(e) => { ana(e); }}>
-        <input className="title" placeholder="Title" required />
-        <input className="author" placeholder="Author" required />
+        <input onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
+        <input onChange={(e) => setAuthor(e.target.value)} className="author" placeholder="Author" required />
         <button type="submit">Add book</button>
       </form>
     </>
