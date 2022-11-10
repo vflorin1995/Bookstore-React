@@ -13,7 +13,7 @@ export default function book(state = [], action = {}) {
         id: action.id,
         author: action.author,
         title: action.title,
-        cathegory: action.category,
+        category: action.category,
       }];
     case REMOVEBOOK:
       return [...state.filter((state) => state.id !== action.id)];
@@ -69,19 +69,19 @@ export const fetchBooks = () => async (dispatch) => {
     });
 };
 
-export const addABook = (id, title, author) => async (dispatch) => {
+export const addABook = (id, title, author, category) => async (dispatch) => {
   const object = {
     item_id: id,
     title,
     author,
-    category: 'horror',
+    category,
   };
   await fetch(URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(object),
   });
-  dispatch(addbook(id, title, author));
+  dispatch(addbook(id, title, author, category));
 };
 
 export const removeABook = (id) => async (dispatch) => {
