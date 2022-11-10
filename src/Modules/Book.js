@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removebook } from '../redux/Books/allbooks';
+import { removeABook } from '../redux/Books/allbooks';
 
 const Book = ({ id, title, author }) => {
   const dispatch = useDispatch();
 
   function remove() {
-    dispatch(removebook(id));
+    console.log(id);
+    dispatch(removeABook(id));
   }
 
   return (
@@ -19,7 +20,7 @@ const Book = ({ id, title, author }) => {
 };
 
 Book.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
 };

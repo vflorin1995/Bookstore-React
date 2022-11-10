@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { addbook } from '../redux/Books/allbooks';
+import { addABook } from '../redux/Books/allbooks';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const AddBook = () => {
 
   function ana(e) {
     e.preventDefault();
-    dispatch(addbook(Math.floor(Math.random() * 100000), title, author));
+    dispatch(addABook(Math.floor(Math.random() * 100000), title, author));
     e.target.reset();
   }
 
