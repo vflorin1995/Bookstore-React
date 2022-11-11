@@ -9,11 +9,10 @@ const Categories = () => {
     dispatch(checkstatus());
   }
   return (
-    <>
-      <h1>Categories</h1>
-      <button onClick={() => check()} type="button">Check status</button>
-      <p>{statusMsg}</p>
-    </>
+    <div className="categories">
+      <button className="primary-btn" onClick={() => check()} type="button">Check status</button>
+      <p className="checkMsg">{statusMsg}</p>
+    </div>
   );
 };
 

@@ -19,16 +19,17 @@ const AddBook = () => {
   }
 
   return (
-    <>
+    <div className="add-book-form">
+      <h2 className="form-heading">ADD NEW BOOK</h2>
       <form onSubmit={(e) => { ana(e); }}>
-        <input onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
-        <input onChange={(e) => setAuthor(e.target.value)} className="author" placeholder="Author" required />
-        <select onChange={(e) => setOptionss(e.target.value)}>
+        <input className="titleInput" placeholder="Book title" onChange={(e) => setTitle(e.target.value)} required />
+        <input className="authorInput" placeholder="Book author" onChange={(e) => setAuthor(e.target.value)} required />
+        <select id="categories" onChange={(e) => setOptionss(e.target.value)}>
           {opti.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
         </select>
-        <button type="submit">Add book</button>
+        <button className="primary-btn" type="submit">Add book</button>
       </form>
-    </>
+    </div>
   );
 };
 
