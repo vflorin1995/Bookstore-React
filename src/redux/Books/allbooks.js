@@ -64,7 +64,6 @@ export const fetchBooks = () => async (dispatch) => {
       Object.keys(data).map((x, id) => indexes.push({
         id: x, title: values[id].title, author: values[id].author, category: values[id].category,
       }));
-      console.log(indexes);
       dispatch(getbooks(indexes));
     });
 };
@@ -85,7 +84,6 @@ export const addABook = (id, title, author, category) => async (dispatch) => {
 };
 
 export const removeABook = (id) => async (dispatch) => {
-  console.log(id);
   const object = { item_id: id };
   await fetch(`${URL}/${id}`, {
     method: 'DELETE',

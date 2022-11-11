@@ -11,15 +11,17 @@ const Booklist = () => {
 
   const bookArr = useSelector((state) => state.book);
   return (
-    bookArr.map((b) => (
-      <Book
-        key={b.id}
-        id={b.id}
-        title={b.title}
-        author={b.author}
-        category={b.category}
-      />
-    ))
+    <div className="books-list">
+      {bookArr.map((b) => (
+        <Book
+          key={b.id}
+          id={b.id}
+          title={b.title}
+          author={b.author}
+          category={b.category}
+        />
+      ))}
+    </div>
   );
 };
 export default Booklist;
